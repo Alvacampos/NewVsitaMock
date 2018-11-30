@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Performance from './components/Performance/Performance.vue';
+import AssetFlows from './components/AssetFlows/AssetFlows.vue';
+import Constituents from './components/Constituents/Constituents.vue';
+import HoldingsAnalysis from './components/HoldingsAnalysis/HoldingsAnalysis.vue';
 
 Vue.use(Router)
 
@@ -10,16 +13,23 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'Performance',
+      component: Performance
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      path: '/assetFlows',
+      name: 'Asset Flows',
+      component: AssetFlows
+    },
+    {
+      path: '/constituents',
+      name: 'Constituents',
+      component: Constituents
+    },
+    {
+      path: '/holdingsAnalysis',
+      name: 'Holdings Analysis',
+      component: HoldingsAnalysis
     }
   ]
 })

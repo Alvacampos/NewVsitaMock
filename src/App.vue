@@ -1,31 +1,39 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div id="app" class="container-flex">
+    <app-top-navbar></app-top-navbar>    
+    <div class="row">
+      <div class="col-2" id="asd">
+        <app-side-bar></app-side-bar>         
+      </div>      
+      <div class="col-10">        
+        <div class="row">
+          <app-inner-bar></app-inner-bar>
+        </div>
+        <div class="row">
+          <router-view/>
+        </div>  
+      </div>
+    </div>    
   </div>
 </template>
 
+<script>
+import TopNavBar from './components/NavBars/TopNavBar/TopNavBar.vue';
+import SideBar from './components/NavBars/SideBar/SideBar.vue';
+import InnerBar from './components/NavBars/InnerBar/InnerBar.vue'
+export default {
+  components: {
+    'app-top-navbar': TopNavBar,
+    'app-side-bar': SideBar,
+    'app-inner-bar': InnerBar
+  }
+}
+</script>
+
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  div.tabs {
+    margin-top: 0px;
+    border-top: 1px solid #999999;
+    width: 100%;
+  }  
 </style>
